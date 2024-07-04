@@ -1,0 +1,28 @@
+---
+import type { GetStaticPathsOptions, Page } from 'astro';
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Pagination from '../../components/Pagination.astro';
+import siteConfig from '../../data/site-config';
+import { sortItemsByDateDesc } from '../../utils/data-utils';
+import SeriePreview from '../../components/SeriePreview.astro';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const series = (await getCollection('series', (s) => !s.data.draft)).sort(sortItemsByDateDesc);
+    return paginate(series, { pageSize: siteConfig.seriesPerPage || 4 });
+}
+
+type Props = { page: Page<CollectionEntry<'series'>> };
+
+const { page } = Astro.props;
+const series = page.data;
+---
+
+<BaseLayout
+    title="Séries"
+    description="Découvrez les différentes séries disponibles sur le site."
+>
+    <h1 class="mb-12 text-2xl leading-tight font-serif italic sm:mb-16 sm:text-4xl">Séries</h1>
+    {series.map((serie) => <SeriePreview serie={serie} class="mb-10 sm:mb-12" />)}
+    <Pagination page={page} class="my-16 sm:my-24" />
+</BaseLayout>

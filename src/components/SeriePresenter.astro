@@ -1,0 +1,49 @@
+---
+import { type ContentEntryMap, getCollection } from 'astro:content';
+import ArrowRight from '../icons/ArrowRight.astro';
+
+type Props = { serie: ContentEntryMap<'series'>; currentPost?: string, class?: string; };
+const { serie, currentPost = null, class: className } = Astro.props;
+
+const posts = (await getCollection('blog'))
+   .filter((post) => post.data.serie?.id === serie.slug)
+   .sort((a, b) => a.data.serie.part - b.data.serie.part);
+---
+<div class:list={['group serie-presenter mt-8 bg-muted rounded-xl', className]}>
+    <header class="cursor-pointer p-7 group-[.is-open]:border-b-[1px] border-b-main/20 flex gap-1 items-center select-none">
+        <div>
+            <div class="text-xl mb-2 font-serif font-bold">{serie.data.title}</div>
+            <div>{serie.data.description}</div>
+        </div>
+        <div class="group-[.is-open]:rotate-180 transition-transform">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 24 24"><path fill="currentColor" d="m12 15l-4.243-4.242l1.415-1.414L12 12.172l2.828-2.828l1.415 1.414z"/></svg>
+        </div>
+    </header>
+    <main class="p-7 hidden group-[.is-open]:block">
+        <ol class="flex flex-col gap-5 list-decimal pl-5">
+            {posts.map((post) => (
+                <>
+                    {!post.data.draft && (
+                    <li>
+                        <a href=`/blog/${post.slug}/` class="cursor-pointer group/item flex gap-4 justify-between items-start">
+                            <span class:list={['italic underline-offset-2 group-hover/item:underline', post.id === currentPost ? 'underline' : '']}>{post.data.title}{post.data.title}</span>
+                            <div class="hidden font-serif italic opacity-0 transition group-hover/item:opacity-100 sm:inline-flex sm:gap-1 sm:items-center sm:shrink-0">
+                                Lire l'article <ArrowRight class="fill-current w-4 h-4" />
+                            </div>
+                        </a>
+                    </li>
+                    )}
+                    {post.data.draft && (
+                    <li class="text-main/70">
+                        <a class="cursor-not-allowed group/item flex justify-between gap-4 items-center text-main/70">
+                            <span class="italic">{post.data.title}{post.data.title}</span>
+                            <span class="hidden sm:inline text-sm text-red-700 dark:text-red-400">Bientôt&nbsp;disponible</span>
+                        </a>
+                    </li>
+                    )}
+                </>
+            ))}
+        </ul>
+    </main>
+</div>
+

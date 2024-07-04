@@ -1,0 +1,64 @@
+---
+import siteConfig from '../data/site-config';
+import SocialIcon from './SocialIcon.astro';
+
+const footerNavLinks = siteConfig.footerNavLinks || [];
+const socialLinks = siteConfig.socialLinks || [];
+---
+
+<footer class="w-full max-w-3xl mx-auto py-10 sm:pt-0 sm:pb-10 z-10">
+    <div class="md:flex justify-between items-center content-center select-none">
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow" target="_blank" class="text-xs mb-4 flex items-center justify-center md:justify-normal opacity-30 transition-opacity hover:opacity-50 md:flex">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" astro-icon="cc"><path fill="currentColor" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2ZM9 8c-2.208 0-4 1.792-4 4a4.001 4.001 0 0 0 6.828 2.828l-1.414-1.414a2 2 0 1 1 0-2.828l1.415-1.413A3.988 3.988 0 0 0 9 8Zm7 0c-2.208 0-4 1.792-4 4a4.001 4.001 0 0 0 6.828 2.828l-1.414-1.414a2 2 0 1 1 0-2.828l1.415-1.413A3.988 3.988 0 0 0 16 8Z"></path></svg>
+            <svg viewBox="0 0 24 24" class="w-5 h-5" astro-icon="cc-by"><path fill="currentColor" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2Zm2 8h-4a1 1 0 0 0-1 1v4h1.5v4h3v-4H15v-4a1 1 0 0 0-1-1Zm-2-5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"></path></svg>
+            <svg viewBox="0 0 24 24" class="w-5 h-5" astro-icon="cc-nc"><path fill="currentColor" d="m4.256 5.672 3.58 3.577A2.5 2.5 0 0 0 10 13h3.999l.09.008A.5.5 0 0 1 14 14H8.5v2H11v2h2v-2h1c.182 0 .359-.02.53-.056l3.798 3.8A9.958 9.958 0 0 1 12 22C6.477 22 2 17.523 2 12c0-2.4.846-4.604 2.256-6.328ZM12 2c5.523 0 10 4.477 10 10 0 2.4-.846 4.604-2.256 6.328l-3.579-3.577A2.5 2.5 0 0 0 14 11h-4l-.09-.01A.5.5 0 0 1 10 10h5.5V8H13V6h-2v2h-1c-.181 0-.358.02-.529.056l-3.799-3.8A9.959 9.959 0 0 1 12 2Z"></path></svg>
+            <svg viewBox="0 0 24 24" class="w-5 h-5" astro-icon="cc-sa"><path fill="currentColor" d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2Zm0 4c-2.177 0-4.03 1.67-4.716 4H6l2.5 3 2.5-3H9.401C9.92 8.805 10.89 8 12 8c1.657 0 3 1.79 3 4s-1.343 4-3 4c-1.11 0-2.08-.804-2.598-1.999H7.285C7.97 16.33 9.823 18 12 18c2.761 0 5-2.686 5-6s-2.239-6-5-6Z"></path></svg>
+        </a>
+
+        <div class="flex gap-x-6 justify-center">
+            {
+            footerNavLinks.length > 0 && (
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4 justify-center">
+                {footerNavLinks.map((link) => (
+                <a
+                    class="inline-flex items-center justify-center text-sm hover:underline hover:underline-offset-2"
+                    href={link.href}
+                    >
+                    {link.text}
+                </a>
+                ))}
+            </div>
+            )}
+            {
+            socialLinks.length > 0 && (
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mb-4 justify-center">
+                {socialLinks.map((link) => (
+                <a
+                    class="inline-flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity"
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferer"
+                    >
+                    {link.icon && (
+                        <SocialIcon icon={link.icon} />
+                    )}
+                    {!link.icon && (
+                        <span>{link.text}</span>
+                    )}
+                </a>
+                ))}
+            </div>
+            )}
+        </div>
+
+        <div class="flex flex-col text-xs opacity-40 text-center mb-4">
+            <div>
+            Build with <span class="text-red-700 relative top-[-.15em] inline-block w-4 h-4"><svg viewBox="0 0 256 256" role="img" aria-labelledby="love" class="inline-block" astro-icon="heart"><path fill="currentColor" d="M240 94c0 70-103.79 126.66-108.21 129a8 8 0 0 1-7.58 0C119.79 220.66 16 164 16 94a62.07 62.07 0 0 1 62-62c20.65 0 38.73 8.88 50 23.89C139.27 40.88 157.35 32 178 32a62.07 62.07 0 0 1 62 62Z"></path></svg></span> by <a href="https://astro.build/" rel="nofollow" target="_blank">Astro</a>
+            </div>
+            <div>
+                Based on <a href="https://github.com/JustGoodUI/dante-astro-theme" target="_blank" rel="nofollow">Dente theme</a>
+            </div>
+        </div>
+    </div>
+
+</footer>
