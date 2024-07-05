@@ -8,14 +8,14 @@ tags:
   - Web development
 seo:
   image:
-    src: '/post-4.jpg'
+    src: '/assets/posts/post-4.jpg'
     alt: Wavy lines on a dark background
-serie:
-    id: neovim
-    part: 1
+#serie:
+#    id: neovim
+#    part: 1
 ---
 
-![Wavy lines on a dark background](/post-4.jpg)
+![Wavy lines on a dark background](/assets/posts/post-4.jpg)
 
 **Note:** This post was created using Chat GPT to demonstrate the features of the _[Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/)_.
 
