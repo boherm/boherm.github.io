@@ -86,11 +86,11 @@ const siteConfig: SiteConfig = {
             icon: 'linkedin',
             href: 'https://www.linkedin.com/in/boris-hermans/'
         },
-        // {
-        //     text: 'YouTube',
-        //     icon: 'youtube',
-        //     href: '#'
-        // },
+        {
+            text: 'YouTube',
+            icon: 'youtube',
+            href: 'https://www.youtube.com/@bohermdev'
+        },
         {
             text: 'X/Twitter',
             icon: 'twitter',
