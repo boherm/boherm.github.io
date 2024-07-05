@@ -41,8 +41,8 @@ export type SiteConfig = {
 
 const siteConfig: SiteConfig = {
     title: 'home@boherm.dev',
-    subtitle: 'Minimal Astro.js theme',
-    description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
+    subtitle: 'Développeur, musicien et passionné de nouvelles technologies.',
+    description: 'Développeur, musicien et passionné de nouvelles technologies. Je partage ici mes découvertes, mes projets et mes réflexions autour de tous ces sujets.',
     // image: {
     //     src: '/dante-preview.jpg',
     //     alt: 'Dante - Astro.js and Tailwind CSS theme'
