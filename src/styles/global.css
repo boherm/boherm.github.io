@@ -17,6 +17,8 @@
     }
 }
 
+* {scroll-behavior: smooth;}
+
 h3 code {
   @apply !text-lg md:!text-xl;
 }
@@ -148,4 +150,12 @@ pre button.rehype-pretty-copy {
 
 lite-youtube {
     max-width: 100%!important;
+}
+
+.anchor {
+    @apply relative;
+}
+
+.anchor-link {
+    @apply absolute top-[.3rem] -left-[.9em] no-underline opacity-30 font-sans text-lg hover:opacity-80 transition-opacity;
 }

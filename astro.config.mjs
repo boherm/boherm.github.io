@@ -6,6 +6,8 @@ import { rehypePrettyCode } from 'rehype-pretty-code';
 import { transformerCopyButton } from '@rehype-pretty/transformers';
 import { remarkReadingTime } from './src/utils/reading-time.mjs';
 import embeds from 'astro-embed/integration';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 // https://astro.build/config
 export default defineConfig({
@@ -42,6 +44,23 @@ export default defineConfig({
                     ],
                 },
             ],
+            rehypeSlug,
+            [
+                rehypeAutolinkHeadings,
+                {
+                    behavior: 'prepend',
+                    content: {
+                        type: 'text',
+                        value: '#',
+                    },
+                    headingProperties: {
+                        className: ['anchor'],
+                    },
+                    properties: {
+                        className: ['anchor-link'],
+                    },
+                },
+            ]
         ],
     },
 });
