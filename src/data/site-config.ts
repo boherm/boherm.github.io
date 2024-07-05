@@ -104,7 +104,7 @@ const siteConfig: SiteConfig = {
     ],
     hero: {
         title: 'Hey, bienvenue !',
-        text: "<p align='center'><strong>Site en cours de construction…</strong></p> <p>Je m'appelle <strong>Boris Hermans</strong> aka <em>boherm</em>, un développeur travaillant actuellement au sein de PrestaShop SA. J'ai la chance de pouvoir faire partie de l'équipe des mainteneurs de l'application open source du même nom.</p><p>Étant également un passionné de développement, de nouvelles technologies et de musique, je partage ici mes découvertes, mes projets et mes réflexions autour de tous ces sujets.</p> <p>N'hésitez pas à me contacter afin que nous puisions discuter de vos projets !</p> <p><strong>Bonne lecture</strong></p>",
+        text: "<p align='center'><strong>Site en cours de construction…</strong></p> <p>Je m'appelle <strong>Boris Hermans</strong> aka <em>boherm</em>, un développeur travaillant actuellement au sein de PrestaShop SA. J'ai la chance de pouvoir faire partie de l'équipe des mainteneurs de l'application open source du même nom.</p><p>Étant également un passionné de développement, de nouvelles technologies et de musique, je partage ici mes découvertes, mes projets et mes réflexions autour de tous ces sujets.</p> <p>N'hésitez pas à me contacter afin que nous puissions discuter de vos projets !</p> <p><strong>Bonne lecture</strong></p>",
         image: {
             src: '/assets/about/hero.jpeg',
             alt: 'Une personne qui utilise un ordinateur.'
