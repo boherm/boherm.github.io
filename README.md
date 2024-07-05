@@ -1,39 +1,10 @@
-# Dante - Astro & Tailwind CSS Theme by justgoodui.com
+# Boherm's personal blog
 
-Dante is a single-author blog and portfolio theme for Astro.js. Featuring a minimal, slick, responsive and content-focused design. For more Astro.js themes please check [justgoodui.com](https://justgoodui.com/).
-
-![Dante Astro.js Theme](public/dante-preview.jpg)
-
-[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/JustGoodUI/dante-astro-theme)
-
-If you click this☝️ button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify.
-
-## Theme Features:
-
-- ✅ Dark and light color mode
-- ✅ Hero section with bio
-- ✅ Portfolio collection
-- ✅ Pagination support
-- ✅ Post tags support
-- ✅ Subscription form
-- ✅ View transitions
-- ✅ Tailwind CSS
-- ✅ Mobile-first responsive layout
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## Template Integrations
-
-- @astrojs/tailwind - https://docs.astro.build/en/guides/integrations-guide/tailwind/
-- @astrojs/sitemap - https://docs.astro.build/en/guides/integrations-guide/sitemap/
-- @astrojs/mdx - https://docs.astro.build/en/guides/markdown-content/
-- @astrojs/rss - https://docs.astro.build/en/guides/rss/
+This is the source code for my personal blog, built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com/) and based on [Dante - Astro & Tailwind CSS Theme by justgoodui.com](https://github.com/JustGoodUI/dante-astro-theme).
 
 ## Project Structure
 
-Inside of Dante Astro theme, you'll see the following folders and files:
+Inside of this website, you'll see the following folders and files:
 
 ```text
 ├── public/
@@ -53,7 +24,7 @@ Inside of Dante Astro theme, you'll see the following folders and files:
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro looks for `.astro`, `.md`, `.mdx` or `.ts` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
 There's nothing special about `src/components/`, but that's where we like to put any Astro (`.astro`) components.
 
@@ -80,12 +51,9 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 
 ## Credits
 
-- Demo content generate with [Chat GPT](https://chat.openai.com/)
-- Images for demo content from [Unsplash](https://unsplash.com/)
-
-## Astro Themes by Just Good UI
-
-- [Ovidius](https://github.com/JustGoodUI/ovidius-astro-theme) is a free single author blog theme.
+- Based on [Dante - Astro & Tailwind CSS Theme by justgoodui.com](https://github.com/JustGoodUI/dante-astro-theme).
+- [Astro](https://astro.build) - The modern static site builder for the modern
+  web.
 
 ## License
 
