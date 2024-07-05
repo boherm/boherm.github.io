@@ -157,5 +157,5 @@ lite-youtube {
 }
 
 .anchor-link {
-    @apply absolute top-[.3rem] -left-[.9em] no-underline opacity-30 font-sans text-lg hover:opacity-80 transition-opacity;
+    @apply absolute top-[.3rem] -left-[.9em] no-underline opacity-30 font-sans text-lg hover:opacity-80 transition-opacity hidden lg:block;
 }

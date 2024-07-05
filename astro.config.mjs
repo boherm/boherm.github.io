@@ -8,6 +8,7 @@ import { remarkReadingTime } from './src/utils/reading-time.mjs';
 import embeds from 'astro-embed/integration';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
@@ -59,6 +60,12 @@ export default defineConfig({
                     properties: {
                         className: ['anchor-link'],
                     },
+                },
+            ],
+            [
+                rehypeExternalLinks,
+                {
+                    target: '_blank',
                 },
             ]
         ],
