@@ -159,3 +159,19 @@ lite-youtube {
 .anchor-link {
     @apply absolute top-[.3rem] -left-[.9em] no-underline opacity-30 font-sans text-lg hover:opacity-80 transition-opacity hidden lg:block;
 }
+
+figure {
+    @apply px-0;
+}
+figcaption {
+    @apply opacity-80 italic;
+}
+figcaption p {
+    @apply !text-lg;
+}
+figcaption p:first-child {
+    @apply mt-0;
+}
+figcaption p:last-child {
+    @apply mb-0;
+}

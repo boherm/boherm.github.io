@@ -1,0 +1,31 @@
+---
+import { Picture } from 'astro-imagetools/components';
+type Props = { 
+    src: string;
+    alt: string;
+    type: null | 'blog';
+    w: null | number;
+    h: null | number;
+    fit: null | 'cover' | 'contain' | 'fill' | 'inside' | 'outside';
+};
+const { src, alt, type, w, h, fit } = Astro.props;
+
+const caption = await Astro.slots.render('default');
+let realSrc = src;
+
+switch (type) {
+    case 'blog':
+    realSrc = `/src/content/blog/assets/${src}`;
+    break;
+}
+---
+<figure>
+    <Picture 
+        src={realSrc} 
+        alt={alt}
+        width={w ?? 768}
+        height={h}
+        fit={fit}
+    />
+    {caption &&<figcaption><slot /></figcaption>}
+</figure>

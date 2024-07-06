@@ -5,10 +5,11 @@ import tailwind from '@astrojs/tailwind';
 import { rehypePrettyCode } from 'rehype-pretty-code';
 import { transformerCopyButton } from '@rehype-pretty/transformers';
 import { remarkReadingTime } from './src/utils/reading-time.mjs';
-import embeds from 'astro-embed/integration';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
+import { astroImageTools } from "astro-imagetools";
+import AutoImport from 'astro-auto-import';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,7 +18,15 @@ export default defineConfig({
         enabled: false,
     },
     integrations: [
-        embeds(),
+        AutoImport({
+            imports: [
+                './src/components/Figure.astro',
+                {
+                    'astro-embed': ['YouTube', 'Tweet'],
+                }
+            ]
+        }),
+        astroImageTools,
         mdx(),
         sitemap(),
         tailwind({
