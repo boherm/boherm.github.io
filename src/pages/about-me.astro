@@ -1,5 +1,5 @@
 ---
-import Picture from 'astro/components/Picture.astro';
+import { Picture } from 'astro-imagetools/components';
 import Button from '../components/Button.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Experience from '../components/Experience.astro';
@@ -8,18 +8,16 @@ const pageConfig = {
     title: 'Boris Hermans',
     description: 'Découvrez qui je suis, mes compétences, mon approche du développement web et mon parcours professionnel.',
 };
-import me from '../assets/me.jpg';
 ---
 
 <BaseLayout title={pageConfig.title} description={pageConfig.description}>
-    <div class="sm:flex gap-10 mb-5">
-        <div class="w-40 md:w-2/3 mb-5 sm:mb-0">
+    <div class="sm:flex place-items-start gap-10 mb-5">
+        <div class="w-40 md:w-2/3 mb-5 sm:mb-0 rounded-full overflow-hidden">
             <Picture
-                src={me} 
+                src="/src/assets/me.jpg"
                 alt="Boris Hermans"
                 width={300}
                 height={300}
-                class="rounded-full"
             />
         </div>
         <div class="w-full">
