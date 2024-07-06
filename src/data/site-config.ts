@@ -43,10 +43,10 @@ const siteConfig: SiteConfig = {
     title: 'home@boherm.dev',
     subtitle: 'Développeur, musicien et passionné de nouvelles technologies.',
     description: 'Développeur, musicien et passionné de nouvelles technologies. Je partage ici mes découvertes, mes projets et mes réflexions autour de tous ces sujets.',
-    // image: {
-    //     src: '/dante-preview.jpg',
-    //     alt: 'Dante - Astro.js and Tailwind CSS theme'
-    // },
+    image: {
+        src: '/assets/og-default.png',
+        alt: 'home@boherm.dev'
+    },
     headerNavLinks: [
         // {
         //     text: 'Blog',
@@ -66,10 +66,10 @@ const siteConfig: SiteConfig = {
         // },
     ],
     footerNavLinks: [
-        // {
-        //     text: 'À propos',
-        //     href: '/about-me'
-        // },
+        {
+            text: 'À propos',
+            href: '/about-me'
+        },
         {
             text: 'Contact',
             href: '/contact'
@@ -110,10 +110,14 @@ const siteConfig: SiteConfig = {
             alt: 'Une personne qui utilise un ordinateur.'
         },
         actions: [
-            // {
-            //     text: 'Get in Touch',
-            //     href: '/contact'
-            // }
+            {
+                text: 'En savoir plus',
+                href: '/about-me'
+            },
+            {
+                text: 'Contactez-moi !',
+                href: '/contact'
+            }
         ]
     },
     subscribe: {

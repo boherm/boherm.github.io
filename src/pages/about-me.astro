@@ -1,0 +1,144 @@
+---
+import Picture from 'astro/components/Picture.astro';
+import Button from '../components/Button.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Experience from '../components/Experience.astro';
+
+const pageconfig = {
+    title: 'Boris Hermans',
+    description: 'Découvrez qui je suis, mes compétences, mon approche du développement web et mon parcours professionnel.',
+    image: {
+        url: 'https://borishermans.com/images/og-image.jpg',
+        alt: 'Boris Hermans'
+    }
+};
+---
+
+<BaseLayout title={pageconfig.title} description={pageconfig.description} image={pageconfig.image}>
+    <div class="sm:flex gap-10 mb-5">
+        <div class="w-40 md:w-2/3 mb-5 sm:mb-0">
+            <Picture
+                src="/src/assets/me.jpg" 
+                alt="Boris Hermans"
+                width={300}
+                height={300}
+                class="rounded-full"
+            />
+        </div>
+        <div class="w-full">
+            <h1 class="text-3xl font-serif font-semibold mb-3">Boris Hermans <br><em>aka</em> boherm</h1>
+            <p class="mb-3">Développeur depuis plus d'une dizaine d'années, j'ai la chance d'être actuellement en poste dans l'équipe <em>Core</em> chez <em>PrestaShop&nbsp;SA</em>.</p>
+            <p>Passionné de nouvelles technologies, j'ai à cœur de faire mon métier avec une attention particulière à la qualité du code et à l'expérience utilisateur.</p>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 mb-5">
+        <div>
+            <h2 class="text-2xl font-serif font-semibold mt-10 mb-3">Langages</h2>
+            <div class="flex flex-wrap gap-5">
+                <span class="rounded-xl px-3 py-1 bg-muted">HTML</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">CSS</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">PHP</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">SQL</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">JavaScript</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">TypeScript</span>
+            </div>
+        </div>
+        <div>
+            <h2 class="text-2xl font-serif font-semibold mt-10 mb-3">Framework et CMS</h2>
+            <div class="flex flex-wrap gap-5">
+                <span class="rounded-xl px-3 py-1 bg-muted">Symfony</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">Laravel</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">Vue.js</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">NestJs</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">PrestaShop</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">WordPress</span>
+            </div>
+        </div>
+        <div>
+            <h2 class="text-2xl font-serif font-semibold mt-10 mb-3">Outils</h2>
+            <div class="flex flex-wrap gap-5">
+                <span class="rounded-xl px-3 py-1 bg-muted">Git</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">Docker</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">NeoVim</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">Figma</span>
+            </div>
+        </div>
+        <div>
+            <h2 class="text-2xl font-serif font-semibold mt-10 mb-3">Loisirs</h2>
+            <div class="flex flex-wrap gap-5">
+                <span class="rounded-xl px-3 py-1 bg-muted">Musique</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">Théâtre</span>
+                <span class="rounded-xl px-3 py-1 bg-muted">Lecture</span>
+            </div>
+        </div>
+    </div>
+    <div class="mb-5">
+        <h2 class="text-2xl font-serif font-semibold mt-10 mb-3">Expérience professionnelle</h2>
+        <div class="flex flex-col gap-5">
+            <Experience
+                from="mars 2023"
+                title="Développeur Open Source Full-Stack"
+                subtitle="PrestaShop SA - Paris (75) - Remote"
+                stack={['PHP', 'Symfony', 'Vue.js']}
+            >
+            <p>Intégré à l'équipe <em>Core</em>, je participe au développement de la solution e-commerce open source PrestaShop.</p>
+            </Experience>
+            <Experience
+                from="juillet 2022"
+                to="février 2023"
+                duration="8 mois"
+                title="Lead Developer Full-Stack"
+                subtitle="apini - Rennes (35)"
+                stack={['TypeScript', 'Vue.JS' ]}
+            >
+            <p>Contributions à plusieurs projets clients, dont notamment une application de suivi de production pour un grand groupe d'installations industrielles.</p>
+            </Experience>
+            <Experience
+                from="janvier 2022"
+                to="mai 2022"
+                duration="5 mois"
+                title="Lead Developer Full-Stack"
+                subtitle="SILAMIR - Rennes (35)"
+                stack={["PHP", "Laravel", "Vue.js"]}
+            >
+            <p>Membre d'une équipe développant une plateforme web à destination des professionnels de la santé pour l'un des plus grands répartiteurs en pharmacie de France.</p>
+            </Experience>
+            <Experience
+                from="mai 2019"
+                to="décembre 2021"
+                duration="2 ans et 8 mois"
+                title="Développeur Full-Stack"
+                subtitle="Needone - Rennes (35)"
+                stack={["PHP", "Laravel", "Vue.js", "Symfony", "AWS"]}
+            >
+            <p>- Développeur puis chef de projet pour une plateforme de mise en relation entre des restaurateurs et des extras.</p>
+            <p>- Formateur puis Chef de projet pour un projet interne à la DGFiP.</p>
+            </Experience>
+            <Experience
+                from="août 2013"
+                to="mai 2019"
+                duration="5 ans et 10 mois"
+                title="Développeur Web"
+                subtitle="Addviso - Rennes (35)"
+                stack={["PHP", "PrestaShop", "WordPress", "Symfony", "JavaScript"]}
+            >
+            <p>Développement frontend et backend de site internet et intégration de newsletters.</p>
+            </Experience>
+            <Experience
+                from="novembre 2012"
+                to="août 2013"
+                duration="10 mois"
+                title="Développeur Web Freelance"
+                subtitle="Rennes (35)"
+                stack={["PHP", "WordPress", "Symfony", "JavaScript"]}
+            >
+            <p>Développement frontend et backend de sites internet, maintenance, hébergement et accompagnement des clients dans leurs transitions vers les outils numériques.</p>
+            </Experience>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <Button href="/contact" class="mt-10">Contactez-moi !</Button>
+    </div>
+
+</BaseLayout>

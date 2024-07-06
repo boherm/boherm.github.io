@@ -1,0 +1,47 @@
+---
+type Props = { 
+    title: string;
+    subtitle: string;
+    from: string;
+    to?: string;
+    duration?: string;
+    stack: string[];
+};
+const { title, subtitle, from, to, duration, stack } = Astro.props;
+---
+<div class="flex gap-5">
+    <div class="w-1/6 text-muted hidden md:block">
+        {
+            to ? (
+                <p class="text-sm">De {from}<br/>à {to}</p>
+            ) : (
+                <p class="text-sm">Depuis {from}</p>
+            )
+        }
+        {duration && <p class="text-sm opacity-55">{duration}</p>}
+    </div>
+    <div class="w-full md:w-5/6">
+        <h3 class="text-xl font-serif font-semibold mb-1">{title}</h3>
+        <p class="text-sm text-muted mb-1">{subtitle}</p>
+        <p class="text-sm text-muted md:hidden mb-1">
+            {
+                to ? (
+                    <>{from} - {to}</>
+                ) : (
+                    <>Depuis {from}</>
+                )
+            }
+            {duration && <span class="opacity-55"> - {duration}</span>}
+        </p>
+        <slot />
+        {
+            stack.length > 0 && (
+            <div class="flex flex-wrap gap-5 my-3">
+                {stack.map((item) => (
+                    <span class="rounded-xl px-3 py-2 bg-muted">{item}</span>
+                ))}
+            </div>
+            )
+        }
+    </div>
+</div>
