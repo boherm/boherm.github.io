@@ -4,11 +4,11 @@ type Props = {
     src: string;
     alt: string;
     type: null | 'blog';
-    w: null | number;
-    h: null | number;
+    width: null | number;
+    height: null | number;
     fit: null | 'cover' | 'contain' | 'fill' | 'inside' | 'outside';
 };
-const { src, alt, type, w, h, fit } = Astro.props;
+const { src, alt, type, width, height, fit } = Astro.props;
 
 const caption = await Astro.slots.render('default');
 let realSrc = src;
@@ -23,8 +23,8 @@ switch (type) {
     <Picture 
         src={realSrc} 
         alt={alt}
-        width={w ?? 768}
-        height={h}
+        width={width ?? 768}
+        height={height}
         fit={fit}
     />
     {caption &&<figcaption><slot /></figcaption>}

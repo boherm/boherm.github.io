@@ -41,18 +41,18 @@ const siteConfig: SiteConfig = {
         alt: 'home@boherm.dev'
     },
     headerNavLinks: [
-        // {
-        //     text: 'Blog',
-        //     href: '/blog'
-        // },
+        {
+            text: 'Blog',
+            href: '/blog'
+        },
         // {
         //     text: 'Séries',
         //     href: '/series'
         // },
-        // {
-        //     text: 'Tags',
-        //     href: '/tags'
-        // },
+        {
+            text: 'Tags',
+            href: '/tags'
+        },
         // {
         //     text: 'Projets',
         //     href: '/projects'
