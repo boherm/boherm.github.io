@@ -7,6 +7,7 @@ import PostPreview from '../../components/PostPreview.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 import SeriePresenter from '../../components/SeriePresenter.astro';
+import Comments from '../../components/Comments.astro';
 
 export async function getStaticPaths() {
 const posts = (await getCollection('blog', (post) => !post.data.draft)).sort(sortItemsByDateDesc);
@@ -73,6 +74,7 @@ const serieData = (await getCollection('series', (s) => s.slug === serie?.id));
             <Content />
         </div>
         {serie && <SeriePresenter currentPost={post.id} serie={serieData[0]} />}
+        <Comments />
         <div class="mt-8 flex flex-wrap items-center gap-6 text-sm justify-between sm:mt-12 sm:text-base">
             {
                 tags.length > 0 && (
