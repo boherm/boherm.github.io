@@ -1,0 +1,166 @@
+---
+title: "Gestion des dotfiles avec GNU Stow"
+excerpt: "Découvrez comment gérer vos dotfiles avec GNU Stow, un outil simple et efficace pour organiser vos fichiers de configuration."
+slug: gestion-dotfiles-gnu-stow
+publishDate: 'Jul 7 2024'
+tags:
+  - Outil
+  - Dotfiles
+---
+
+<Figure type="blog" src="24/07/a-lot-of-folders.jpg" alt="Un tas de dossiers" height="350">
+Un gros tas de dossiers de configuration.
+<span class="text-xs">(Image by <a
+href="https://pixabay.com/users/counselling-440107/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1920437">Ulrike
+Mai</a> from <a
+href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1920437">Pixabay</a>)</span>
+</Figure>
+
+<p class="text-2xl">Si vous êtes un utilisateur d'outils en ligne de commande, vous avez
+probablement déjà utilisé des _dotfiles_, des fichiers de configuration pour
+personnaliser votre environnement local.</p>
+
+Généralement, ces fichiers sont stockés dans votre [répertoire
+personel](https://fr.wikipedia.org/wiki/R%C3%A9pertoire_personnel) sur votre
+système d'exploitation, mais parfois, ils peuvent être stockés dans un répertoire
+spécifique.
+
+Tout cela rend la gestion de ces fichiers de configuration un peu compliquée,
+surtout si vous devez réinstaller votre système ou si vous souhaitez les
+partager sur d'autres machines ou avec d'autres utilisateurs, ainsi que de les
+faire évoluer au fil du temps.
+
+## Qu'est-ce que GNU Stow ?
+
+[GNU Stow](https://www.gnu.org/software/stow/) est un outil de gestion de
+_dotfiles_ en ligne de commande très simple d'utilisation, initié en 2001 par Guillaume
+Morin et actuellement maintenu par [Adam
+Spiers](https://github.com/aspiers). Outre le fait qu'Adam soit un développeur
+chevronné et un contributeur actif à de nombreux projets open source, il est également
+passionné par la musique et membre du [London Tango Orchestra](https://www.thelondontangoorchestra.com/)
+en tant que violoncelliste.
+
+(Par ailleurs, je vous recommande de jeter un œil à son
+[site perso](https://adamspiers.org/), il y a une superbe [chanson sur le
+Perl](https://adamspiers.org/computing/YMCA.html) qui s'y cache !).
+
+## Comment fonctionne GNU Stow ?
+
+Comme expliqué dans la [documentation
+officielle](https://www.gnu.org/software/stow/manual/stow.html) de l'outil, GNU
+Stow permet de gérer des collections de fichiers de configuration en réalisant
+des liens symboliques entre les fichiers de configuration et les répertoires
+dans lesquels ils doivent être installés.
+
+Cela vous permet de stocker vos fichiers de configuration dans un répertoire
+versionné sur _GIT_, par exemple, et de les installer sur votre système en une
+seule commande.
+
+Si vous souhaitez modifier un fichier de configuration, il vous suffira
+simplement de le modifier dans le répertoire versionné. Vous pourrez ensuite
+pusher vos modifications sur votre dépôt _GIT_ et les récupérer sur vos autres
+machines.
+
+Étant donné que ces fichiers de configuration sont liés symboliquement, aucune
+autre action ne sera nécessaire !
+
+Pratique non ?
+
+## Place à la pratique
+
+### Préparation de vos fichiers de configuration
+
+Pour commencer, nous allons devoir créer un répertoire pour stocker nos fichiers
+de configuration. Vous pouvez le nommer comme vous le souhaitez, mais je vous
+recommande de le nommer `dotfiles` pour plus de clarté.
+
+```bash
+mkdir ~/dotfiles
+```
+
+Ensuite, vous pouvez y ajouter vos fichiers de configuration, en les organisant
+dans des sous-dossiers par applications.
+
+L'idée de cette structure est de pouvoir organiser vos fichiers de configuration
+sous forme de groupe. Par exemple, un répertoire pour _NeoVim_, un autre pour
+_Tmux_, un autre pour _Zsh_, etc. Puis, d'y ajouter les fichiers de configuration à
+partir de ces répertoires de groupe comme si vous étiez à la racine de votre dossier
+utilisateur. `~`.
+
+Pour utiliser un script lua lors de l'initialisation de _NeoVim_,
+nous devons avoir un fichier `init.lua` dans le répertoire `~/.config/nvim/`.
+Dans notre structure de répertoires, ce fichier devra être placé dans le sous-répertoire
+`dotfiles/nvim/.config/nvim/`.
+
+Voici un exemple de structure de répertoires pour vos fichiers de configuration
+dans le dossier `dotfiles` pour _NeoVim_ et _Tmux_ :
+
+```
+dotfiles/
+└── nvim/
+    └── .config/nvim/
+        ├── init.lu
+        └── ...
+└── tmux/
+    ├── .tmux.conf
+    └── .tmux/plugins/
+        └── ...
+```
+
+Enfin, il vous suffira de versionner ce répertoire avec _GIT_ pour pouvoir
+versionner vos fichiers de configuration, les partager avec d'autres
+utilisateurs ou les installer sur d'autres machines.
+
+**Attention cependant, à ne pas versionner des fichiers sensibles contenant des
+mots de passe ou des clés d'API sur vos dépôts publics !**
+
+### Installation de GNU Stow
+
+Pour installer l'outil sur votre système, vous pouvez utiliser votre
+gestionnaire de paquets favori. 
+
+Étant un utilisateur de _macOS_, j'utilise
+_homebrew_ pour installer mes paquets :
+
+```bash
+brew install stow
+```
+
+### Utilisation de GNU Stow
+
+Ensuite, pour installer vos fichiers de configuration, vous devrez vous placer
+dans votre répertoire `dotfiles` précédemment créé et exécuter la commande suivante :
+
+```bash
+stow nvim tmux
+```
+
+Cette commande va créer des liens symboliques entre les fichiers de
+configuration de _NeoVim_ et de _Tmux_ et les répertoires dans lesquels ils
+doivent être installés.
+
+Pour rappel, étant donné que ces fichiers de configuration sont liés symboliquement, 
+vous pourrez les modifier dans le répertoire `dotfiles` sans problème. Les
+modifications seront bien prises en compte, sans aucune action de votre part !
+
+## Conclusion
+
+GNU Stow est un outil simple et efficace pour gérer vos fichiers de
+configuration via des liens symboliques. Il vous permet de stocker vos fichiers
+de configuration dans un répertoire versionné et de les installer sur vos
+différentes machines en une seule commande.
+
+Cependant, de temps en temps, pour certaines applications, il peut être
+nécessaire de pouvoir stocker des clés d'API ou des mots de passe dans des
+fichiers de configuration.
+
+Une alternative de GNU Stow et répondant à cette problématique serait
+d'utiliser, à la place, l'outil [chezmoi](https://www.chezmoi.io/), qui permet de récupérer
+des informations sensibles via des outils comme
+[1Password](https://1password.com/), [LastPass](https://lastpass.com/) ou
+[Bitwarden](https://bitwarden.com/),
+par exemple.
+
+Une autre posibilité serait également de créer à la main des liens symboliques,
+mais cela peut vite devenir fastidieux si vous avez beaucoup de fichiers de
+configuration à gérer.
