@@ -18,7 +18,11 @@ const { page, class: className } = Astro.props;
             </IconButton>
         )
     }
-    <span class="text-sm" aria-current="page">Page {page.currentPage} sur {page.lastPage}</span>
+    {
+        page.lastPage > 1 && (
+            <span class="text-sm" aria-current="page">Page {page.currentPage} sur {page.lastPage}</span>
+        )
+    }
     {
         page.url.next && (
             <IconButton
