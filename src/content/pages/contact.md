@@ -17,4 +17,4 @@ N'hésitez pas à m'envoyer un e-mail à [boris@boherm.dev](mailto:boris@boherm.
 
 _Réseaux sociaux:_
 
-Vous pouvez également me retrouver sur les réseaux sociaux, notamment sur [GitHub](https://github.com/boherm), [LinkedIn](https://www.linkedin.com/in/boris-hermans/) et [X/Twitter](https://twitter.com/bohermdev).
+Vous pouvez également me retrouver sur les réseaux sociaux, notamment sur [GitHub](https://github.com/boherm), [LinkedIn](https://www.linkedin.com/in/boris-hermans/) et [Bluesky](https://bsky.app/profile/boherm.bsky.social).
