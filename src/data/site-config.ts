@@ -85,11 +85,6 @@ const siteConfig: SiteConfig = {
             href: 'https://www.youtube.com/@bohermdev'
         },
         {
-            text: 'X/Twitter',
-            icon: 'twitter',
-            href: 'https://x.com/bohermdev'
-        },
-        {
             text: 'BlueSky',
             icon: 'bluesky',
             href: 'https://bsky.app/profile/boherm.bsky.social'
